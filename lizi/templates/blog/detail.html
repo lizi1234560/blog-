@@ -1,0 +1,42 @@
+﻿{% extends 'base.html' %}
+
+{% block main %}
+    <article class="post post-1">
+        <header class="entry-header">
+            <h1 class="entry-title">{{ post.title }}</h1>
+            <div class="entry-meta">
+                <span class="post-category"><a href="#">{{ post.category.name }} </a></span>
+                <span class="post-date">
+                    <a href="#">
+                    <time class="entry-date" datetime="{{ post.created_time }}">{{ post.created_time }}</time>
+                    </a>
+                </span>
+                <span class="post-author"><a href="#">{{ post.author }} </a></span>
+                <span class="comments-link"><a href="#">4 Comments</a></span>
+            </div>
+        </header>
+        <div class="entry-content clearfix">
+            {{ post.body|safe }}
+        </div>
+    </article>
+    <section class="comment-area">
+        
+
+<!--高速版-->
+<div id="SOHUCS" sid="${sid}变量"></div>
+<script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+window.changyan.api.config({
+appid: 'cysYYoaSl',
+conf: 'prod_088507c44f6b570c77abc9b812b91a16'
+});
+</script>
+
+    </section>
+{% endblock main %}
+{% block toc %}
+    <div class="widget">
+        <h3 class="widget-title">文章目录</h3>
+        {{ toc|safe }}
+    </div>
+{% endblock toc %}
